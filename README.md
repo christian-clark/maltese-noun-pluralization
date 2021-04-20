@@ -1,3 +1,3 @@
 # Maltese Noun Pluralization
 
-Code to train and evaluate a neural network model for predicting Maltese noun class. Specifically, given a Maltese noun in singular form, the network predicts whether the noun takes a [broken plural or sound plural](https://en.wikipedia.org/wiki/Broken_plural).
+Code to train and evaluate a neural network model for predicting whether a Maltese noun takes a [broken plural or sound plural](https://en.wikipedia.org/wiki/Broken_plural), based on word form, meaning, and etymology.
