@@ -101,6 +101,7 @@ def get_argparser():
     parser.add_argument('--no_etymology', action='store_true', default=False)
     parser.add_argument('--no_semantics', action='store_true', default=False)
     parser.add_argument('--no_lstm', action='store_true', default=False)
+    parser.add_argument('--fine_tune_semantics', action='store_true', default=False)
     parser.add_argument('--model_dest', type=str,
                         help='directory name for saving the trained model')
     return parser
@@ -151,11 +152,10 @@ def main():
         )(semantic_word_id)
 
     else:
-        # any benefit to not fine-tuning the embeddings?
         semantic_embedding = tf.keras.layers.Embedding(
             input_dim=semantic_embedding_input_dim,
             output_dim=semantic_embedding_output_dim,
-            trainable=True,
+            trainable=args.fine_tune_semantics,
             weights=[semantic_embedding_weights]
         )(semantic_word_id)
         semantic_embedding = tf.reshape(
