@@ -1,5 +1,6 @@
-from train_noun_class_prediction import get_data, get_char_sequence_matrix
-from test_noun_class_prediction import zero_one_accuracy, per_class_metrics
+from train_plural_type_prediction import get_data, get_char_sequence_matrix
+from test_plural_type_prediction import (
+    zero_one_accuracy, per_class_metrics, matrix2preds)
 import argparse
 import io
 import json
@@ -40,15 +41,15 @@ def main():
         f.write('word\tprediction\tactual\n')
         for i, word in enumerate(words):
             pred = preds[i]
-            actual = noun_classes[i]
+            actual = etymologies[i]
             f.write('{}\t{}\t{}\n'.format(word, pred, actual))
         f.close()
 
-    accuracy = zero_one_accuracy(preds, noun_classes)
+    accuracy = zero_one_accuracy(preds, etymologies)
     print('0/1 accuracy:', accuracy)
     # class 0: Non-Semitic (mostly Romance) etymology
     # class 1: Semitic etymology
-    metrics0, metrics1 = per_class_metrics(preds, noun_classes)
+    metrics0, metrics1 = per_class_metrics(preds, etymologies)
     print('class 0 (sound plural) metrics:')
     print('\tprecision:', metrics0['precision'])
     print('\trecall:', metrics0['recall'])

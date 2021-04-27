@@ -1,4 +1,4 @@
-from train_noun_class_prediction import get_data, get_semantic_id_matrix, \
+from train_plural_type_prediction import get_data, get_semantic_id_matrix, \
     get_char_sequence_matrix
 import argparse
 import io
