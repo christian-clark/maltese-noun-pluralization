@@ -3,6 +3,7 @@ import io
 import json
 import numpy as np
 import tensorflow as tf
+import unidecode
 from os import makedirs
 
 # TODO might want to make this a command-line argument
@@ -83,7 +84,11 @@ def get_char_sequence_matrix(words, char2id, sequence_length):
     for i, word in enumerate(words):
         # truncate words that exceed sequence_length
         for j, char in enumerate(word[:sequence_length]):
-            matrix[i, j] = char2id[char]
+            if char in char2id:
+                matrix[i, j] = char2id[char]
+            else:
+                simplified = unidecode.unidecode(char)
+                matrix[i, j] = char2id[simplified]
     return matrix
 
 
