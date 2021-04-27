@@ -629,7 +629,7 @@ karità	0	0
 fenomenu	0	0
 ħuttab	0	1
 futur	0	0
-ġewnaħ	1   1
+ġewnaħ	1	1
 drink	0	0
 splużjoni	0	0
 girna	1	0

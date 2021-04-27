@@ -650,7 +650,7 @@ wied	0	0
 użanza	0	0
 kontinent	0	0
 impatt	0	0
-ġewnaħ	1   1
+ġewnaħ	1	1
 partiċipju	0	0
 skruplu	0	0
 nazzjonaliżmu	0	0

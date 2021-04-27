@@ -575,7 +575,7 @@ senter	1	0
 ġewż	0	1
 għażżien	0	1
 parata	0	0
-ġewnaħ	1   1
+ġewnaħ	1	1
 terħa	1	0
 bhima	1	1
 ispazju	0	0

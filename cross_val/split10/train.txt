@@ -1397,7 +1397,7 @@ produzzjoni	0	0
 mintna	1	1
 sejba	0	1
 demel	1	1
-ġewnaħ	1   1
+ġewnaħ	1	1
 tradizzjoni	0	0
 fetħa	0	1
 kundizzjoni	0	0

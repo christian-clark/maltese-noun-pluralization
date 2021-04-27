@@ -787,7 +787,7 @@ indiċi	0	0
 saff	1	1
 maturità	0	0
 ġarra	1	0
-ġewnaħ	1   1
+ġewnaħ	1	1
 tewmi	0	1
 komma	1	1
 saqwi	1	1

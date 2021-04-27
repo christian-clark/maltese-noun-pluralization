@@ -1259,7 +1259,7 @@ tiswija	0	0
 selezzjoni	0	0
 arterja	0	0
 favur	0	0
-ġewnaħ	1   1
+ġewnaħ	1	1
 sinagoga	0	0
 pudina	0	0
 profeta	0	0

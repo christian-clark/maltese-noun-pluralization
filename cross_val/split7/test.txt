@@ -577,7 +577,7 @@ lablabi	0	0
 qatra	0	1
 salib	1	1
 kisi	0	1
-ġewnaħ	1   1
+ġewnaħ	1	1
 dazju	0	0
 moralità	0	0
 qxejra	0	1

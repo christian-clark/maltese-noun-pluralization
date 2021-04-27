@@ -1031,7 +1031,7 @@ faġan	0	0
 saħta	1	1
 sibbien	0	1
 sinjorina	0	0
-ġewnaħ	1   1
+ġewnaħ	1	1
 piġama	0	0
 urna	0	0
 dimonju	0	0

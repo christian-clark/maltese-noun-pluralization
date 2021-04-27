@@ -719,7 +719,7 @@ faxxa	1	0
 ħakma	0	1
 villa	1	0
 saħħar	0	1
-ġewnaħ	1   1
+ġewnaħ	1	1
 magħmudija	0	1
 sala	1	0
 pum	0	0

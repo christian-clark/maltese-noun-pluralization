@@ -577,7 +577,7 @@ applaws	0	0
 sajjetta	0	0
 timbru	0	0
 għonq	1	0
-ġewnaħ	1   1
+ġewnaħ	1	1
 farmaċewtiku	0	0
 berqa	1	1
 ġarrab	0	1
