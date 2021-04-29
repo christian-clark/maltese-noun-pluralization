@@ -4,6 +4,7 @@ import argparse
 import io
 import json
 import numpy as np
+from sklearn.metrics import mean_squared_error
 from tensorflow import keras
 
 
@@ -108,8 +109,14 @@ def main():
             f.write('{}\t{}\t{}\n'.format(word, pred, actual))
         f.close()
 
+    # MSE from predicting sound plural every time
+    baseline_mse = mean_squared_error([0]*len(noun_classes), noun_classes)
+    mse = mean_squared_error(pred_matrix, noun_classes)
     accuracy = zero_one_accuracy(preds, noun_classes)
+    print('baseline mean squared error:', baseline_mse)
+    print('mean squared error:', mse)
     print('0/1 accuracy:', accuracy)
+
     # class 0: sound plural
     # class 1: broken plural
     metrics0, metrics1 = per_class_metrics(preds, noun_classes)
