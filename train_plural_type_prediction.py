@@ -6,12 +6,10 @@ import tensorflow as tf
 import unidecode
 from os import makedirs
 
-# TODO might want to make this a command-line argument
 HIDDEN_LAYER_SIZE = 128
 HIDDEN_LAYER_ACTIVATION = 'sigmoid'
 LSTM_EMBEDDING_DIM = 64
 LSTM_DIM = 64
-# TODO possible to avoid using PAD?
 PAD = '<PAD>'
 UNK = '<UNK>'
 
@@ -103,6 +101,9 @@ def get_argparser():
                         help='number of hidden layers')
     parser.add_argument('--batch_size', type=int, default=1)
     parser.add_argument('--epochs', type=int, default=1)
+    parser.add_argument('--bilstm', action='store_true', default=False,
+                        help='use bidirectional LSTM for character-level'\
+                             + ' embeddings')
     parser.add_argument('--no_etymology', action='store_true', default=False)
     parser.add_argument('--no_semantics', action='store_true', default=False)
     parser.add_argument('--no_lstm', action='store_true', default=False)
@@ -118,6 +119,8 @@ def main():
 
     assert (not args.no_etymology) or (not args.no_semantics) \
         or (not args.no_lstm)
+
+    assert not(args.bilstm and args.no_lstm)
 
     words, etymologies, noun_classes = get_data(args.train)
     word_count = len(words)
@@ -178,7 +181,11 @@ def main():
         char_embedding = tf.keras.layers.Embedding(
                              input_dim=len(char2id),
                              output_dim=LSTM_EMBEDDING_DIM)(lstm_input)
-        lstm_out = tf.keras.layers.LSTM(units=LSTM_DIM)(char_embedding)
+        if args.bilstm:
+            lstm_layer = tf.keras.layers.LSTM(units=LSTM_DIM)
+            lstm_out = tf.keras.layers.Bidirectional(lstm_layer)(char_embedding)
+        else:
+            lstm_out = tf.keras.layers.LSTM(units=LSTM_DIM)(char_embedding)
 
     ### Etymology, semantics, and LSTM embeddings go into feedforward network
     feedforward_input = tf.keras.layers.Concatenate()(
